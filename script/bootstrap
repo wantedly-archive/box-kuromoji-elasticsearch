@@ -1,0 +1,95 @@
+#!/bin/bash
+#
+# bootstrap
+#
+# Get readly
+
+set -e
+
+#
+# Welcome
+#
+echo ""
+echo "  box-ubuntu12.04-chef"
+echo ""
+
+#
+# Check for Bundler
+#
+if test ! $(which bundle)
+then
+  echo "  x You need to install Bundler:"
+  echo "    gem install bundler"
+  exit 1
+else
+  echo "  + Bundler found."
+fi
+
+#
+# Check for VirtualBox
+#
+if test ! $(which virtualbox)
+then
+  echo "  x You need to install VirtualBox."
+  echo "    You can download it from https://www.virtualbox.org/wiki/Downloads"
+  exit 1
+else
+  echo "  + VirtualBox found."
+fi
+
+#
+# Check for Vagrant
+#
+if test ! $(which vagrant)
+then
+  echo "  x You need to install Vagrant."
+  echo "    You can download it from http://www.vagrantup.com/downloads.html"
+  exit 1
+else
+  echo "  + Vagrant found."
+fi
+
+#
+# Add a Vagrant Box
+#
+if [[ $(vagrant box list) =~ opscode-ubuntu-12.04 ]]
+then
+  echo "  + Vagrant box 'opscode-ubuntu-12.04' found."
+else
+  echo "  + Adding vagrant box 'opscode-ubuntu-12.04'."
+  vagrant box add opscode-ubuntu-12.04 \
+    https://opscode-vm.s3.amazonaws.com/vagrant/opscode_ubuntu-12.04_provisionerless.box
+fi
+
+#
+# Install vagrant plugin
+#
+if [[ $(vagrant plugin list) =~ vagrant-berkshelf ]]
+then
+  echo "  + Vagrant plugin 'vagrant-berkshelf' found."
+else
+  echo "  + Installing vagrant plugin 'vagrant-berkshelf'."
+  vagrant plugin install vagrant-berkshelf
+fi
+
+if [[ $(vagrant plugin list) =~ vagrant-serverspec ]]
+then
+  echo "  + Vagrant plugin 'vagrant-serverspec' found."
+else
+  echo "  + Installing vagrant plugin 'vagrant-serverspec'."
+  vagrant plugin install vagrant-serverspec
+fi
+
+#
+# Install Gems
+# 
+echo "  + Bootstrapping your Rubies."
+bundle install --quiet
+
+#
+# Startup instructions
+#
+echo ""
+echo "  Good work. We're ready."
+
+exit 0
