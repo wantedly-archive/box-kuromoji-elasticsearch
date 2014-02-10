@@ -1,0 +1,19 @@
+name: elasticsearch
+version: 0.0.1
+inherits: wercker/ubuntu12.04-chef10.18.2@1.0.0
+type: service
+platform: ubuntu@12.04
+description: elasticsearch with kuromoji plugin
+keywords:
+  - elasticsearch
+  - kuromoji
+  - japanese search
+packages:
+  - elasticsearch@0.90.10
+  - kuromoji@1.7.0
+script: sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+env:
+  WERCKER_ELASTICSEARCH_VERSION: 0.90.10
+  WERCKER_ELASTICSEARCH_URL: $$HOST$$:9200
+  WERCKER_ELASTICSEARCH_HOST: $$HOST$$
+  WERCKER_ELASTICSEARCH_PORT: 9200
