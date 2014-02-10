@@ -1,4 +1,4 @@
-# Elasticsearch Box
+# Elasticsearch Box [![wercker status](https://app.wercker.com/status/34db4cd9a13b36c0ab61d613328c6b1f "wercker status")](https://app.wercker.com/project/bykey/34db4cd9a13b36c0ab61d613328c6b1f)
 A wercker box for elasticsearch with kuromoji plugin.
 
 ## GETTING STARTED
