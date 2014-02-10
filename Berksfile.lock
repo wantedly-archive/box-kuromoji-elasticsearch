@@ -1,0 +1,33 @@
+{
+  "sources": {
+    "apt": {
+      "locked_version": "2.3.7",
+      "git": "https://github.com/opscode-cookbooks/apt.git",
+      "ref": "eb5d01f83005d662e48bd247b41fafb4b4646c89"
+    },
+    "build-essential": {
+      "locked_version": "1.4.3",
+      "git": "https://github.com/opscode-cookbooks/build-essential.git",
+      "ref": "9eea6e1486754c0a5e700d767a62bde7d69c3194"
+    },
+    "java": {
+      "locked_version": "1.19.2",
+      "git": "https://github.com/socrata-cookbooks/java.git",
+      "ref": "2ee43189c2c3e58295c0472fbaf2bb5d8e423690"
+    },
+    "elasticsearch": {
+      "locked_version": "0.3.7",
+      "git": "https://github.com/elasticsearch/cookbook-elasticsearch.git",
+      "ref": "8d2813d1e67cfbb6558ba29cad721bf546459aec"
+    },
+    "xml": {
+      "locked_version": "1.2.0"
+    },
+    "monit": {
+      "locked_version": "0.7.1"
+    },
+    "ark": {
+      "locked_version": "0.4.2"
+    }
+  }
+}
