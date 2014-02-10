@@ -1,2 +1,2 @@
 # Elasticsearch Box
-An wercker box for elasticsearch with kuromoji plugin.
+A wercker box for elasticsearch with kuromoji plugin.
