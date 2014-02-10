@@ -1,4 +1,4 @@
-name: kuromji-elasticsearch
+name: kuromoji-elasticsearch
 version: 0.0.1
 inherits: wantedly/ubuntu12.04-chef@0.0.1
 type: service
