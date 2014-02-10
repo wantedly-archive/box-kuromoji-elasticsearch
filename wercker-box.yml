@@ -1,6 +1,6 @@
 name: kuromji-elasticsearch
 version: 0.0.1
-inherits: wercker/ubuntu12.04-chef
+inherits: wantedly/ubuntu12.04-chef@0.0.1
 type: service
 platform: ubuntu@12.04
 description: elasticsearch with kuromoji plugin
