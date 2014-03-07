@@ -14,3 +14,9 @@ You can try running chef with vagrant.
 ```bash
 $ vagrant up
 ```
+
+Rerun `chef-solo` and `rspec` to running vm.
+
+```bash
+$ vagrant provision
+```

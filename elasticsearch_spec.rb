@@ -41,3 +41,10 @@ end
 describe service("elasticsearch") do
   it { should be_running }
 end
+
+#
+# Elasticsearch Server response?
+#
+describe command("curl http://localhost:9200") do
+  it { should return_exit_status 0 }
+end
