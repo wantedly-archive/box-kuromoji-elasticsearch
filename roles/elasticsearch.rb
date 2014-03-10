@@ -14,6 +14,15 @@ override_attributes({
     "version" => "0.90.10",
     "plugins" => {
       "elasticsearch/elasticsearch-analysis-kuromoji/1.7.0" => {}
+    },
+    "discovery" => {
+      "zen" => {
+        "ping" => {
+          "multicast" => {
+            "enabled" => false
+          }
+        }
+      }
     }
   },
   "java" => {
