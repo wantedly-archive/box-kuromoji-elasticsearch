@@ -11,9 +11,9 @@ override_attributes({
     "mirror" => "us-east-1.ec2"
   },
   "elasticsearch" => {
-    "version" => "0.90.10",
+    "version" => "1.0.1",
     "plugins" => {
-      "elasticsearch/elasticsearch-analysis-kuromoji/1.7.0" => {}
+      "elasticsearch/elasticsearch-analysis-kuromoji/2.0.0" => {}
     },
     "discovery" => {
       "zen" => {
