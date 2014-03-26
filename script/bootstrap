@@ -95,6 +95,12 @@ echo "  + Bootstrapping your Rubies."
 bundle install --quiet
 
 #
+# Install Cookbooks
+#
+echo "  + Installing chef cookbooks"
+berks install --quiet --path cookbooks
+
+#
 # Startup instructions
 #
 echo ""
