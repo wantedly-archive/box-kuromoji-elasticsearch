@@ -5,8 +5,9 @@ run_list(
   "recipe[java]",
   "recipe[monit]",
   "recipe[elasticsearch]",
+  "recipe[elasticsearch::proxy]",
   "recipe[elasticsearch::plugins]",
-  "recipe[elasticsearch::monit]"
+  "recipe[elasticsearch::monit]",
 )
 override_attributes({
   "apt" => {
