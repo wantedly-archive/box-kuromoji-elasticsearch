@@ -80,9 +80,17 @@ else
   vagrant plugin install vagrant-serverspec
 fi
 
+if [[ $(vagrant plugin list) =~ vagrant-omnibus ]]
+then
+  echo "  + Vagrant plugin 'vagrant-omnibus' found."
+else
+  echo "  + Installing vagrant plugin 'vagrant-omnibus'."
+  vagrant plugin install vagrant-omnibus
+fi
+
 #
 # Install Gems
-# 
+#
 echo "  + Bootstrapping your Rubies."
 bundle install --quiet
 
