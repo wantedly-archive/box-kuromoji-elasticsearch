@@ -10,7 +10,6 @@ include SpecInfra::Helper::DetectOS
 #
 describe command("java -version") do
   it { should return_exit_status 0 }
-  it { should return_stdout /1\.7/ }
 end
 
 #

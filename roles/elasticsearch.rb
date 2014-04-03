@@ -5,7 +5,6 @@ run_list(
   "recipe[java]",
   "recipe[monit]",
   "recipe[elasticsearch]",
-  "recipe[elasticsearch::proxy]",
   "recipe[elasticsearch::plugins]",
   "recipe[elasticsearch::monit]",
 )
@@ -15,6 +14,7 @@ override_attributes({
   },
   "elasticsearch" => {
     "version" => "1.0.1",
+    "allocated_memory" => "500m",
     "plugins" => {
       "elasticsearch/elasticsearch-analysis-kuromoji" => {
         "version" => "2.0.0"

@@ -1,5 +1,5 @@
 name: kuromoji-elasticsearch
-version: 0.0.5
+version: 0.0.6
 inherits: wantedly/ubuntu12.04-chef@0.0.1
 type: service
 platform: ubuntu@12.04
