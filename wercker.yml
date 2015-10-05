@@ -1,7 +1,6 @@
 box : wercker-labs/docker
 build :
   steps :
-    - wercker/validate-wercker-box
     - script:
         name: Check docker verion
         code: |
