@@ -1,5 +1,5 @@
 name: kuromoji-elasticsearch
-version: 0.0.6
+version: 0.0.7
 inherits: wercker-labs/docker@0.0.7
 type: service
 platform: ubuntu@12.04
