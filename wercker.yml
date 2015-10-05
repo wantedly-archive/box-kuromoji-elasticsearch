@@ -1,11 +1,4 @@
-box : wercker-labs/docker
+box : wercker/default
 build :
   steps :
-    - script:
-        name: Check docker verion
-        code: |
-          docker -v
-    - script:
-        name: Run test
-        code: |
-          script/test
+    wercker/validate-wercker-box
