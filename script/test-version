@@ -1,0 +1,35 @@
+#!/bin/bash
+#
+# Usage: script/run
+#
+
+set -e
+
+# this script should be run in project root
+BASE_DIRECTORY=`pwd`
+ELASTICSEARCH_VERSION="1.5.1"
+
+echo "==> Building target..."
+cd ${BASE_DIRECTORY}
+script/build
+
+echo "==> Running test..."
+docker run \
+  --rm \
+  --name kuromoji-elasticsearch \
+  quay.io/wantedly/kuromoji-elasticsearch:latest \
+  -v | \
+  grep -e $ELASTICSEARCH_VERSION
+
+if [ $? -eq 0 ]
+then
+  echo "  Test passed"
+else
+  echo "  Test failed"
+  exit 1
+fi
+
+
+echo "==> Cleaning up..."
+docker kill kuromoji-elasticsearch > /dev/null 2>&1 || true
+docker rm   kuromoji-elasticsearch > /dev/null 2>&1 || true

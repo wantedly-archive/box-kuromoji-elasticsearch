@@ -1,4 +1,5 @@
-box : wercker/default
+box : wercker-labs/docker
 build :
   steps :
     - wercker/validate-wercker-box
+    - script/test-version
