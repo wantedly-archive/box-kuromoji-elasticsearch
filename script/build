@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# Usage: script/run
+#
+
+set -e
+
+docker build -t quay.io/wantedly/kuromoji-elasticsearch:latest .

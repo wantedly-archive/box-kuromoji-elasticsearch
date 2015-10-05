@@ -1,6 +1,6 @@
 name: kuromoji-elasticsearch
-version: 0.0.6
-inherits: wantedly/ubuntu12.04-chef@0.0.1
+version: 0.0.7
+inherits: wercker-labs/docker@0.0.7
 type: service
 platform: ubuntu@12.04
 description: elasticsearch with kuromoji plugin
@@ -8,12 +8,12 @@ keywords:
   - elasticsearch
   - kuromoji
   - japanese search
-packages:
-  - elasticsearch@1.0.1
-  - kuromoji@2.0.0
-script: sudo chef-solo -c $WERCKER_SOURCE_DIR/solo.rb -j $WERCKER_SOURCE_DIR/solo.json -l debug
+  - docker
+script: |
+  docker build -t quay.io/wantedly/kuromoji-elasticsearch .
+  docker run -d --name kuromoji-elasticsearch -p 9200:9200 quay.io/wantedly/kuromoji-elasticsearch
 env:
-  WERCKER_ELASTICSEARCH_VERSION: 1.0.1
+  WERCKER_ELASTICSEARCH_VERSION: 1.5.1
   WERCKER_ELASTICSEARCH_URL: $$HOST$$:9200
   WERCKER_ELASTICSEARCH_HOST: $$HOST$$
   WERCKER_ELASTICSEARCH_PORT: 9200

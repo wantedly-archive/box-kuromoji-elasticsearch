@@ -1,8 +1,11 @@
-box : wercker/ubuntu12.04-ruby1.9.3-berkshelf1
+box : wercker-labs/docker
 build :
   steps :
     - script:
-        name : install cookbooks
-        code : |
-          cd $WERCKER_ROOT
-          berks install -p cookbooks
+        name: Check docker verion
+        code: |
+          docker -v
+    - script:
+        name: Run test
+        code: |
+          script/test
