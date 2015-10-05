@@ -6,10 +6,6 @@ build :
         code: |
           docker -v
     - script:
-        name: Test Elasticsearch version
+        name: Run test
         code: |
-          script/test-version
-    - script:
-        name: Test Elasticsearch endpoint
-        code: |
-          script/test-endpoint
+          script/test
