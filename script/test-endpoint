@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Usage: script/run
+#
+
+set -e
+
+# this script should be run in project root
+BASE_DIRECTORY=`pwd`
+
+echo "==> Building target..."
+cd ${BASE_DIRECTORY}
+script/build
+
+echo "==> Running kuromoji-elasticsearch..."
+docker kill kuromoji-elasticsearch > /dev/null 2>&1 || true
+docker rm   kuromoji-elasticsearch > /dev/null 2>&1 || true
+docker kill infrataster > /dev/null 2>&1 || true
+docker rm   infrataster > /dev/null 2>&1 || true
+script/run -d
+
+echo "==> Running test..."
+script/run-infrataster
+
+echo "==> Cleaning up..."
+docker kill kuromoji-elasticsearch > /dev/null 2>&1 || true
+docker rm   kuromoji-elasticsearch > /dev/null 2>&1 || true
+docker kill infrataster > /dev/null 2>&1 || true
+docker rm   infrataster > /dev/null 2>&1 || true

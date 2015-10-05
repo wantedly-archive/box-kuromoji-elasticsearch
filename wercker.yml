@@ -2,4 +2,15 @@ box : wercker-labs/docker
 build :
   steps :
     - wercker/validate-wercker-box
-    - script/test-version
+    - script:
+        name: Check docker verion
+        code: |
+          docker -v
+    - script:
+        name: Test Elasticsearch version
+        code: |
+          script/test-version
+    - script:
+        name: Test Elasticsearch endpoint
+        code: |
+          script/test-endpoint
