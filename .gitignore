@@ -1,6 +1,2 @@
-.DS_Store
-.env
-
-## Vagrant
-.vagrant
-user-data
+cookbooks/*
+.vagrant/*
