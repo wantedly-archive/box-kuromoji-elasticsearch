@@ -1,8 +1,4 @@
-box : wercker/ubuntu12.04-ruby1.9.3-berkshelf1
+box : wercker/default
 build :
   steps :
-    - script:
-        name : install cookbooks
-        code : |
-          cd $WERCKER_ROOT
-          berks install -p cookbooks
+    - wercker/validate-wercker-box
