@@ -1,5 +1,5 @@
 name: kuromoji-elasticsearch
-version: 0.0.8
+version: 0.0.9
 type: service
 platform: ubuntu@12.04
 description: elasticsearch with kuromoji plugin
