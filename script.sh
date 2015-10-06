@@ -4,8 +4,8 @@ ELASTICSEARCH_VERSION=1.5.2
 KUROMOJI_VERSION=2.5.0
 
 sudo apt-get update
-sudo apt-get upgrade
-sudo apt-get install -y openjdk-7-jre
+sudo apt-get -y upgrade
+sudo apt-get install -y openjdk-7-jre wget
 
 sudo wget -O /tmp/elasticsearch-$ELASTICSEARCH_VERSION.deb https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$ELASTICSEARCH_VERSION.deb
 sudo dpkg -i /tmp/elasticsearch-$ELASTICSEARCH_VERSION.deb
