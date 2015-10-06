@@ -1,6 +1,5 @@
 name: kuromoji-elasticsearch
 version: 0.0.7
-inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: service
 platform: ubuntu@12.04
 description: elasticsearch with kuromoji plugin
