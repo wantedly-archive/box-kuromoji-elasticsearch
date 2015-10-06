@@ -1,6 +1,6 @@
 name: kuromoji-elasticsearch
 version: 0.0.7
-inherits: wercker-labs/docker@0.0.7
+inherits: wercker/ubuntu12.04-webessentials@0.0.3
 type: service
 platform: ubuntu@12.04
 description: elasticsearch with kuromoji plugin
@@ -8,12 +8,10 @@ keywords:
   - elasticsearch
   - kuromoji
   - japanese search
-  - docker
 script: |
-  docker build -t quay.io/wantedly/kuromoji-elasticsearch .
-  docker run -d --name kuromoji-elasticsearch -p 9200:9200 quay.io/wantedly/kuromoji-elasticsearch
+  ./script.sh
 env:
-  WERCKER_ELASTICSEARCH_VERSION: 1.5.1
+  WERCKER_ELASTICSEARCH_VERSION: 1.5.2
   WERCKER_ELASTICSEARCH_URL: $$HOST$$:9200
   WERCKER_ELASTICSEARCH_HOST: $$HOST$$
   WERCKER_ELASTICSEARCH_PORT: 9200

@@ -14,6 +14,18 @@ echo "  box-kuromoji-elasticsearch"
 echo ""
 
 #
+# Check for Bundler
+#
+if test ! $(which bundle)
+then
+  echo "  x You need to install Bundler:"
+  echo "    gem install bundler"
+  exit 1
+else
+  echo "  + Bundler found."
+fi
+
+#
 # Check for VirtualBox
 #
 if test $(which virtualbox)
@@ -38,26 +50,22 @@ else
 fi
 
 #
-# Install vagrant plugin
+# Add a Vagrant Box
 #
-if [[ $(vagrant plugin list) =~ dotenv ]]
+if [[ $(vagrant box list) =~ opscode-ubuntu-12.04 ]]
 then
-  echo "  o Vagrant plugin 'dotenv' found."
+  echo "  + Vagrant box 'opscode-ubuntu-12.04' found."
 else
-  echo "  + Installing Vagrant plugin 'dotenv'"
-  vagrant plugin install dotenv
+  echo "  + Adding vagrant box 'opscode-ubuntu-12.04'."
+  vagrant box add opscode-ubuntu-12.04 \
+    http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-12.04_chef-provisionerless.box
 fi
 
 #
-# Prepare coreos/.env
+# Install Gems
 #
-if test -f coreos/.env
-then
-  echo "  o coreos/.env found"
-else
-  echo "  + Creating coreos/.env"
-  cp coreos/.env.sample coreos/.env
-fi
+echo "  + Bootstrapping your Rubies."
+bundle install --quiet
 
 #
 # Startup instructions
