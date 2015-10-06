@@ -9,7 +9,7 @@ sudo apt-get install -y openjdk-7-jre wget
 
 sudo wget -O /tmp/elasticsearch-$ELASTICSEARCH_VERSION.deb https://download.elasticsearch.org/elasticsearch/elasticsearch/elasticsearch-$ELASTICSEARCH_VERSION.deb
 sudo dpkg -i /tmp/elasticsearch-$ELASTICSEARCH_VERSION.deb
-sudo sed -i 's/# http.enabled: false/http.enabled: true/g' /etc/elasticsearch/elasticsearch.yml
-sudo sed -i 's/# network.host: 192.168.0.1/network.host: $$HOST$$/g' /etc/elasticsearch/elasticsearch.yml
+sudo sed -i 's/#http.enabled: false/http.enabled: true/g' /etc/elasticsearch/elasticsearch.yml
+sudo sed -i 's/#network.host: 192.168.0.1/network.host: $$HOST$$/g' /etc/elasticsearch/elasticsearch.yml
 sudo /usr/share/elasticsearch/bin/plugin -install elasticsearch/elasticsearch-analysis-kuromoji/$KUROMOJI_VERSION
 sudo service elasticsearch restart
