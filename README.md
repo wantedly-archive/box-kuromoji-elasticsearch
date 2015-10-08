@@ -8,6 +8,11 @@ $ git clone https://github.com/wantedly/box-kuromoji-elasticsearch.git && cd box
 $ script/bootstrap
 ```
 
+## VERSION
+- 0.1.0
+ - Elasticsearch 1.5.2
+ - Kuromoji plugin 2.5.0
+
 ## TRYING PROVISIONING
 You can try running chef with vagrant.
 
