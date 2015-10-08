@@ -1,5 +1,5 @@
 name: kuromoji-elasticsearch
-version: 0.0.9
+version: 0.1.0
 type: service
 inherits: wercker/ubuntu12.04-webessentials@1.0.4
 platform: ubuntu@12.04
